@@ -1,0 +1,18 @@
+<div class="list-group">
+    
+    <!-- All dialogs -->
+    <a href="#" class="list-group-item"
+    (click)="clicked(dialog)" *ngFor="let dialog of dialogs">
+    <img src="{{dialog.partner.imageUrl}}" width="40px" alt="">
+    {{dialog.partner.name}}
+
+
+    <!-- Label about active dialog -->
+    <span *ngIf=" current_dialog && current_dialog.id == dialog.id"
+    class="label label-primary inform">Active!</span>
+
+    <!-- Label about new messages receiving -->
+    <span *ngIf=" dialog.isNewMessages "
+    class="label label-success inform">New messages!</span>
+</a>
+</div>

@@ -1,0 +1,10 @@
+.panel-body{
+    padding-top: 0; 
+    padding-bottom: 0; 
+    background: #f7f7f9;
+}
+.sidebar{
+    border-right: 1px solid #daedf7; 
+    background: #f7f7f9; 
+    height: 414px; 
+}

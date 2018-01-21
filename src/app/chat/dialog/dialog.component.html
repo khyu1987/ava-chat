@@ -1,0 +1,45 @@
+
+<div *ngIf="current_dialog">
+  <h4 class="text-primary text-center">You chat to <span class="text-success">{{current_dialog.partner.name}}</span></h4>
+
+  <!-- Messages -->
+  <div class="messages-container">
+    <div *ngIf="current_dialog.messages">
+      <div *ngFor=" let message of current_dialog.messages">
+
+        <!-- Partner messages -->
+        <div  *ngIf=" message.author != current_user">
+          <img width="40" src="{{message.author.imageUrl}}" alt="ava"> 
+          <span>{{message.text}}</span>
+        </div>
+
+        <!-- User messages -->
+        <div  *ngIf=" message.author == current_user" class="text-right" >
+         <span>{{message.text}}</span>
+         <img width="40" src="{{message.author.imageUrl}}" alt="ava">
+       </div>
+
+     </div>
+   </div>
+ </div>
+</div>
+
+<div *ngIf="!current_dialog">
+  <h4 class="text-primary text-center">Dialog not chosen</h4>
+  <div class="messages-container">
+  </div>
+</div>
+
+<br>
+
+<!-- Input for user message -->
+<div class="input-group">
+  <input type="text" class="form-control"
+  (keydown.enter)="onEnter($event)"
+  [(ngModel)]="draftMessage.text"
+  placeholder="Your message..."/>
+  <span class="input-group-btn">
+    <button class="btn btn-primary" [disabled]="!current_dialog" (click)="onEnter($event)" type="button"><span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
+  </span>
+</div>
+

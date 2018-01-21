@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <br><br>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h1 class="panel-title text-center">Amazing Chat</h1> 
+        </div> 
+        <div class="panel-body">
+          <div class="row">
+            
+            <!-- Dialog list -->
+            <div class="col-md-4 sidebar">
+              <h4 class="text-primary text-center">Choose a dialog:</h4>           
+              <app-dialog-list
+              (clicked_dialog)="fromChild($event)"
+              [current_dialog]="current_dialog"
+              [dialogs]="dialogs">
+            </app-dialog-list>
+          </div>
+
+          <!-- One active dialog -->
+          <div class="col-md-8">
+            <app-dialog
+            [current_dialog]="current_dialog"
+            [current_user]="current_user"
+            [dialogs]="dialogs">
+          </app-dialog>             
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
+</div>
+</div>
+
